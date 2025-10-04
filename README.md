@@ -14,20 +14,18 @@ A modern, real-time chat application built with React, Firebase, and TypeScript.
 
 ### Prerequisites
 - Node.js (v16+ recommended)
-- npm or yarn
+- npm
 - Firebase project (Firestore + Authentication enabled)
 
 ### Installation
 1. Clone the repository:
 	 ```bash
 	 git clone https://github.com/OhadAsh/react-project-chat-firebase.git
-	 cd react-project-chat-firebase/react-chat
+	 cd react-project-chat-firebase
 	 ```
 2. Install dependencies:
 	 ```bash
 	 npm install
-	 # or
-	 yarn install
 	 ```
 3. Set up your Firebase config in `src/App.tsx`:
 	 - Replace the `firebaseConfig` object with your own Firebase project credentials.
@@ -35,8 +33,6 @@ A modern, real-time chat application built with React, Firebase, and TypeScript.
 ### Running Locally
 ```bash
 npm start
-# or
-yarn start
 ```
 The app will run at `http://localhost:3000`.
 
