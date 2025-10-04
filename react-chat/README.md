@@ -1,3 +1,81 @@
+# React Firebase Chat App
+
+A modern, real-time chat application built with React, Firebase, and TypeScript. Features Google authentication, live messaging, and a beautiful UI inspired by popular chat platforms.
+
+## Features
+- Real-time chat using Firebase Firestore
+- Google Sign-In authentication
+- Responsive, modern UI with vivid colors
+- User avatars and message bubbles
+- Auto-scroll to latest message
+- Secure Firestore rules for user data
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v16+ recommended)
+- npm or yarn
+- Firebase project (Firestore + Authentication enabled)
+
+### Installation
+1. Clone the repository:
+	 ```bash
+	 git clone https://github.com/OhadAsh/react-project-chat-firebase.git
+	 cd react-project-chat-firebase/react-chat
+	 ```
+2. Install dependencies:
+	 ```bash
+	 npm install
+	 # or
+	 yarn install
+	 ```
+3. Set up your Firebase config in `src/App.tsx`:
+	 - Replace the `firebaseConfig` object with your own Firebase project credentials.
+
+### Running Locally
+```bash
+npm start
+# or
+yarn start
+```
+The app will run at `http://localhost:3000`.
+
+## Usage
+- Click "Sign in with Google" to authenticate.
+- Start chatting in real time!
+- Messages are stored in Firestore and visible to all signed-in users.
+
+## Project Structure
+```
+react-chat/
+	├── public/
+	├── src/
+	│   ├── App.tsx
+	│   ├── App.css
+	│   └── ...
+	├── package.json
+	└── README.md
+```
+
+## Firestore Security Rules Example
+```js
+rules_version = '1';
+service cloud.firestore {
+	match /databases/{database}/documents {
+		match /messages/{messageId} {
+			allow read: if request.auth != null;
+			allow create: if request.auth.uid != null && request.auth.uid == request.resource.data.uid;
+			allow update, delete: if request.auth.uid == resource.data.uid;
+		}
+	}
+}
+```
+
+## License
+MIT
+
+---
+Made with ❤️ by OhadAsh
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

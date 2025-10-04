@@ -1,38 +1,235 @@
+body {
+  background-color: #1a1a2e;
+}
+
 .App {
+  text-align: center;
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+.App header {
+  background-color: #0f0f1f;
+  height: 10vh;
+  min-height: 50px;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  max-width: 728px;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.App section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #161625;
+}
+
+main {
+  padding: 10px;
+  height: 80vh;
+  margin: 10vh 0 10vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+main::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+main::-webkit-scrollbar-track {
+  background: #12121b;
+}
+
+main::-webkit-scrollbar-thumb {
+  background: #9b59b6;
+  border-radius: 10px;
+}
+
+form {
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  background-color: #0f0f1f;
+  width: 100%;
+  max-width: 728px;
+  display: flex;
+  font-size: 1.5rem;
+  gap: 5px;
+  padding: 5px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+}
+
+form button {
+  width: 20%;
+  background-color: #8e44ad;
+  color: #fff;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+form button:hover {
+  background-color: #9b59b6;
+}
+
+input {
+  line-height: 1.5;
+  width: 100%;
+  font-size: 1.5rem;
+  background: #2c2c54;
+  color: #fff;
+  outline: none;
+  border: none;
+  padding: 0 15px;
+  border-radius: 15px;
+}
+
+button {
+  background-color: #1a1a2e;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sign-in {
+  color: #1a1a2e;
+  background: #fff;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.sign-in:hover {
+  background: #f1c40f;
+}
+
+ul, li {
+  text-align: left;
+  list-style: none;
+}
+
+p {
+  max-width: 500px;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  position: relative;
+  color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.message {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+}
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: #fff;
+  background: #00a8ff;
+  align-self: flex-end;
+  box-shadow: 0 2px 5px rgba(0,168,255,0.5);
+  transition: 0.2s;
+}
+
+.sent p:hover {
+  background: #0097e6;
+}
+
+.received p {
+  background: #feca57;
+  color: #1a1a2e;
+  box-shadow: 0 2px 5px rgba(254,202,87,0.5);
+  transition: 0.2s;
+}
+
+.received p:hover {
+  background: #ffd32a;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 2px 5px;
+  border: 2px solid #fff;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.google-sign-in {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #fff;
+  color: #444;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  padding: 12px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.google-sign-in img {
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.google-sign-in:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
+}
+
+.google-sign-in:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.google-sign-in span {
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.google-sign-in:hover span {
+  color: #4285f4;
 }
